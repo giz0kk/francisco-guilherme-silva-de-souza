@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Estilos próprios
+   Quase todo o visual é feito com classes do Tailwind. Aqui ficam só as
+   animações e alguns detalhes que o Tailwind não cobre.
+   ========================================================================== */
+
+/* Esconde a barra de rolagem dos cards que rolam para o lado */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Marcadores do mapa deslizam suavemente quando mudam de posição (carro andando) */
+.map-marker {
+  transition: left 1.5s linear, top 1.5s linear;
+}
+
+/* Barra de progresso da corrida */
+.progress-bar {
+  transition: width 1.5s linear;
+}
+
+/* Ponto azul pulsando (localização do usuário) */
+.map-pulse {
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(39, 110, 241, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(39, 110, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(39, 110, 241, 0);
+  }
+}
+
+/* Transições usadas com <Transition name="..."> do Vue */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.sheet-enter-active,
+.sheet-leave-active {
+  transition: transform 0.25s;
+}
+.sheet-enter-from,
+.sheet-leave-to {
+  transform: translate(-50%, 100%);
+}
